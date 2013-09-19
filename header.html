@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html<?php echo $direction ?>>
+<head>
+    <?php echo $meta ?>
+    <meta name="keywords" content="moodle, <?php echo $title ?> " />
+
+<!--    <title><?php echo $title ?></title>-->
+	<title>CampusNet</title>
+    <link rel="shortcut icon" href="<?php echo $CFG->httpsthemewww .'/'. current_theme() ?>/favicon.ico" />
+
+	<LINK REL="StyleSheet" title="theme-default" HREF="<?php echo $CFG->httpsthemewww .'/'. current_theme() ?>/theme_default.css" TYPE="text/css" MEDIA=screen>
+
+	<LINK REL="StyleSheet" HREF="<?php echo $CFG->httpsthemewww .'/'. current_theme() ?>/styles_print.css" TYPE="text/css" MEDIA=print>
+	
+	<?php include("$CFG->javascript"); ?> 
+
+
+<script type="text/javascript" src="<?php echo $CFG->httpsthemewww .'/'. current_theme() ?>/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="<?php echo $CFG->httpsthemewww .'/'. current_theme() ?>/js/styleswitch.js"></script>
+<script type="text/javascript" src="<?php echo $CFG->httpsthemewww .'/'. current_theme() ?>/js/jquery/jquery.dropdown.js"></script>
+
+<?php if (strpos($_SERVER["PHP_SELF"], "login/index.php") === false) { ?>
+<!-- BEGIN SINGLE SIGN ON -->
+<script type="text/javascript">
+$(document).ready(function(){
+loaded = false;
+
+$("#hlogin").submit(function(){
+	if (!loaded) {
+		var user = $("#husername").val();
+		var pass = $("#hpassword").val();
+		document.getElementById('selfserv').src = 'http://selfservice.sebts.edu/selfservice/login.aspx#mdl|'+user+'|'+pass;
+		return false;
+	}
+	else {
+		return true;
+	}
+	
+});
+
+});
+
+function doneload () {
+if(document.getElementById('selfserv').src.search("selfservice") > 0){
+	loaded = true;
+	$("#hlogin").submit();
+	}
+}
+</script>
+<!-- END SINGLE SIGN ON -->
+<?php } ?>
+<!--[if lt IE 7]>
+<script type="text/javascript" src="<?php echo $CFG->httpsthemewww .'/'. current_theme() ?>/js/ie6png.js"></script>
+<![endif]-->
+
+
+
+<!-- Hide breadcrumb for all but moodle tab -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("body[class*=mod-resource] .navbar").css("display", "none");
+		<?php if(!isadmin()){ ?>
+		$("body[class*=course-236] .navbar").css("display", "none");
+		<?php } ?>
+		});
+		
+		/*
+		function resize_iframe(frame) {
+		//load new url in invisible copyframe
+		document.getElementById("copyframe").src = "phpiframe.php?url=" + frame.contentWindow.location.href;
+		
+		}
+		
+		function send_height(){
+			//send height of copy frame to visible frame
+			
+		}*/
+</script>
+
+<script Xlanguage="javascript" type="text/javascript">
+$(document).ready(function(){
+$("body").css("visibility","visible");
+});
+</script>
+  
+<!-- ++Begin Dynamic Feed Wizard Generated Code++ -->
+  <!--
+  // Created with a Google AJAX Search and Feed Wizard
+  // http://code.google.com/apis/ajaxsearch/wizards.html
+  -->
+
+  <!--
+  // The Following div element will end up holding the actual feed control.
+  // You can place this anywhere on your page.
+  -->
+
+  <!-- Google Ajax Api
+  -->
+  <script src="http://www.google.com/jsapi?key=notsupplied-wizard"
+    type="text/javascript"></script>
+
+  <!-- Dynamic Feed Control and Stylesheet -->
+  <script src="http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.js"
+    type="text/javascript"></script>
+  <style type="text/css">
+    @import url("http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.css");
+	
+	.gfg-title {
+		font-size: 20px;
+		font-weight : bold;
+		color : black;
+		background-color: #FFFFFF;
+		font-face:Trebuchet;
+		margin:10px;
+		display: none;
+
+	}
+	
+	.gfg-root {
+  height : auto;
+  position : relative;
+  overflow : hidden;
+  text-align : center;
+  font-family: Trebuchet;
+  font-size: 16px;
+  border: 0px solid #BCCDF0;
+}
+
+	.gfg-list {
+	float:right;
+	width:30%;
+	}
+
+
+.gf-title a {
+  font-size: 20px !important;
+  line-height : 1.2em;
+  font-weight:bold;
+	color:black;
+	
+}
+
+.gfg-entry {
+  background-color : white;
+  overflow : hidden;
+  text-align : left;
+  margin-top : 3px;
+  width:70%;
+  float:left;
+}
+.gfg-entry * {
+  width:100% !important;
+}
+
+
+  </style>
+
+  <script type="text/javascript">
+    function LoadDynamicFeedControl() {
+      var feeds = [
+	{title: 'Around Southeastern',
+	 url: 'http://apps.sebts.edu/AroundSE/index.php/feed/'
+	}];
+      var options = {
+        stacked : false,
+        horizontal : false,
+        title : ""
+      }
+
+      new GFdynamicFeedControl(feeds, 'feed-control', options);
+    }
+    // Load the feeds API and set the onload callback.
+    google.load('feeds', '1');
+    google.setOnLoadCallback(LoadDynamicFeedControl);
+  </script>
+<!-- ++End Dynamic Feed Control Wizard Generated Code++ -->
+
+
+<!-- Pop-up for Student Directory -->
+<SCRIPT TYPE="text/javascript">
+<!--
+function popup(mylink, windowname)
+{
+if (! window.focus)return true;
+var href;
+if (typeof(mylink) == 'string')
+   href=mylink;
+else
+   href=mylink.href;
+window.open(href, windowname, 'width=700,height=400,scrollbars=yes');
+return false;
+}
+//-->
+</SCRIPT>
+
+<!-- end pop-up code -->
+
+</head>
+
+
+<body <?php
+    echo " $bodytags";
+    if ($focus) {
+        echo " onload=\"setfocus()\"";
+    }
+    ?>>
+
+
+<div id="page"><?php if ($home) {  // home page ?>
+
+<div class="headermain" id="header-home">
+
+<table style="width: 100%; min-width: 1004px" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td rowspan="2"><a href="<?php echo $CFG->wwwroot.'/' ?>" style="display: block; width: 247px; height: 96px;"><div id="logo"></div> 
+</a></td>
+<td align="right" valign="top">
+<div class="headermenu"><?php echo $menu ?><span class="headerdate" ><script language="Javascript" type="text/javascript">
+//<![CDATA[
+<!--
+
+// Get today's current date.
+var now = new Date();
+
+// Array list of days.
+var days = new Array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+
+// Array list of months.
+var months = new Array('January','February','March','April','May','June','July','August','September','October','November','December');
+
+// Calculate the number of the current day in the week.
+var date = ((now.getDate()<10) ? "0" : "")+ now.getDate();
+
+// Calculate four digit year.
+function fourdigits(number)     {
+        return (number < 1000) ? number + 1900 : number;
+                                                                }
+
+// Join it all together
+today =  days[now.getDay()] + " " +
+              date + " " +
+                          months[now.getMonth()] + " " +               
+                (fourdigits(now.getYear())) ;
+				
+
+
+// Print out the data.
+document.write("" +today+ " ");
+  
+//-->
+//]]>
+</script></span></div>
+</td>
+</tr>
+
+</table>
+
+<div><div class="menubar"><!-- MENU GOES HERE -->
+<?php
+
+        {
+        include('menubar.php'); 
+        }   
+?></div></div>
+<?php } else if ($heading) {  // This is what gets printed on any other page with a heading 
+?>
+<div class="headermain" id="header-home">
+<table style="width: 100%; min-width: 1004px" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td rowspan="2"><a href="<?php echo $CFG->wwwroot.'/' ?>" style="display: none"><div id="logo"></div> 
+</a></td>
+
+<td align="right" valign="top" width=50%>
+
+<table width=500 height=35><tr><td>
+<div class="headermenu"><?php echo $menu ?><span class="headerdate" style="position:absolute; top:5px; left:5px;"><script language="Javascript" type="text/javascript">
+//<![CDATA[
+<!--
+
+// Get today's current date.
+var now = new Date();
+
+// Array list of days.
+var days = new Array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+
+// Array list of months.
+var months = new Array('January','February','March','April','May','June','July','August','September','October','November','December');
+
+// Calculate the number of the current day in the week.
+var date = ((now.getDate()<10) ? "0" : "")+ now.getDate();
+
+// Calculate four digit year.
+function fourdigits(number)     {
+        return (number < 1000) ? number + 1900 : number;
+                                                                }
+
+// Join it all together
+today =  days[now.getDay()] + ", " + months[now.getMonth()] + " " +
+              date + ", " +               
+                (fourdigits(now.getYear())) ;
+				
+// Print out the data.
+document.write("" +today+ " ");
+  
+//-->
+//]]>
+</script></span></div></td></tr>
+
+<tr>
+<td align=right>
+<p>
+
+<?php if((isguest()) && (strpos($_SERVER["PHP_SELF"], "login/index.php") === false)) { ?><table ><tr><td>
+ 
+<form class="loginform" id="hlogin" name="login" method="post" action="/login/index.php">
+<input size="10" name="username" id="husername" /></td><td><input size="10" id="hpassword" name="password" type="password" /></td><td>
+<input name="Submit" value="Login" type="submit" /></td></tr>
+</form>
+<tr>
+<td align=left><font color=#ffffff style="font-size: 10px;font-style:italic">Username</font></td>
+<td align=left><font color=#ffffff style="font-size: 10px;font-style:italic">Password</font></td>
+</tr></table>
+<? } ?>
+</td>
+</tr>
+</table>
+
+</td></tr></table>
+
+<!-- SINGLE SIGN ON HIDDEN IFRAME -->
+<iframe id="selfserv" onload="doneload();" src="about:blank" width="0" height="0" frameborder="no"></iframe>
+
+<div><div class="menubar"><!-- MENU GOES HERE -->
+<?php
+
+        {
+        include('menubar.php'); 
+        }   
+?></div></div>
+<?php } ?>
+<div class="surround"><font size=6>This is the old version of Moodle, available for referencing old materials only. Please do not use it for uploading or submitting anything except for course evaluations.</font><?php //Accessibility: breadcrumb trail/navbar now a DIV, not a table.
+      if ($navigation) { // This is the navigation bar with breadcrumbs  ?>
+<div class="navbar clearfix">
+<div class="breadcrumb"><?php print_navigation($navigation); ?></div>
+<div class="navbutton"><?php echo $button; ?></div>
+</div>
+<?php } else if ($heading) { // If no navigation, but a heading, then print a line ?><?php }  ?><!-- END OF HEADER -->
+<div id="content">

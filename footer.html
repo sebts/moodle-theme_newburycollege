@@ -1,0 +1,78 @@
+
+<div style="text-align: center; font-size: 10px">Southeastern Seminary is a Cooperative Program Ministry of the Southern Baptist Convention.
+<a target=_blank href=http://www.cpmissions.net>Find out more at www.cpmissions.net</a></div>
+</div> <!-- end div containerContent -->
+<!-- START OF FOOTER -->
+<div id="footer">
+
+<?php if ($navigation and false) { ?>
+    <div class="navbar clearfix">
+        <div class="breadcrumb"><?php print_navigation($navigation); ?></div>
+        <div class="menu"><?php echo $menu; ?></div>
+    </div>
+<?php } ?>
+<div class="footer">
+<table class="footer_panel" width="100%" border="0" cellpadding="15" cellspacing="0">
+  
+       <td width="592" align="left" valign="top"> <P class="footer">Southeastern Baptist Theological Seminary seeks to glorify the Lord Jesus Christ by equipping students to serve the Church and fulfill the Great Commission.
+(Matthew 28:19-20)</p></td>
+    <td class="footer" width="225" align="right" valign="top"><a href="http://sebts.edu/library/default.aspx" title="The Library at Southeastern">The Library at Southeastern</a><a href="http://sebts.edu/cgcs/default.aspx" title="Center for Great Commission Studies"><br />
+      </a><a href="http://college.sebts.edu/" target="_blank" title="This link will open in a new window: The College at Southeastern">The College at Southeastern<br />
+        </a><a href="http://www.sbc.net/" target="_blank" title="This link will open in a new window: Southern Baptist Convention">Southern Baptist Convention<br />
+        </a><a href="http://college.sebts.edu/" target="_blank" title="This link will open in a new window: The College at Southeastern"><br />
+        </a></td>
+  </tr>
+</table>
+<!-- <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2647713-5']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script> --></div>
+<?php if (!empty($performanceinfo)) {
+          echo $performanceinfo;
+} ?>
+
+<?php 
+
+global $CFG, $COURSE; 
+if (function_exists('is_in_popup')) {
+    $inpopup = is_in_popup();
+} else {
+    $inpopup = false;
+}
+
+if (!$inpopup) { 
+    print_container_start(false, '', 'footer');
+    
+    echo '<p class="helplink">';
+    echo page_doc_link(get_string('moodledocslink'));
+    echo '</p>';
+    echo '<p><br>';    
+
+    $useridarray = array(2 // MD
+                          );
+    
+    if (!empty($performanceinfo) && isloggedin() && in_array($USER->id, $useridarray)) {
+        echo $performanceinfo;
+    }
+
+    print_container_end();
+
+} // end if inpopup
+
+?>
+</div>
+
+
+
+</body>
+
+</html>
